@@ -49,7 +49,7 @@ def get_synchronizer(src_model, dst_model):
             return MegatronVllmQWen2MCoreSync(src_model, dst_model)
         elif model_class_name == "LlamaForCausalLM":
             return MegatronVllmLlamaSync(src_model, dst_model)
-        elif model_class_name == "DeepseekV3ForCausalLM":
+        elif model_class_name in ["DeepseekV3ForCausalLM", "Qwen3MoeForCausalLM"]:
             return MegatronVllmMoonlightSync(src_model, dst_model)
         else:
             raise RuntimeError(
